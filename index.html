@@ -3,70 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="TAZ Fast Food está en mantenimiento. Volvemos pronto con todo el sabor colombiano.">
+  <meta name="description" content="TAZ Fast Food está remodelando su página. Volvemos pronto.">
   <meta name="robots" content="noindex">
-  <link rel="icon" href="IMG/Logo-taz.png?v=1" type="image/png">
+  <meta name="theme-color" content="#f6efe2">
+  <link rel="icon" href="IMG/Logo-taz.png?v=2" type="image/png">
   <title>En mantenimiento · TAZ Fast Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Styles/index.css?v=1">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Styles/index.css?v=2">
 </head>
 <body>
-  <header class="top">
-    <span class="brand"><img src="IMG/Logo-taz-trans.png?v=1" alt="TAZ Fast Food, hecho en Colombia"></span>
-    <span class="estado"><i aria-hidden="true"></i> En mantenimiento</span>
-  </header>
+  <div class="papel" aria-hidden="true"></div>
 
-  <div class="cinta" aria-hidden="true"><div><span>🚧 Estamos en el horno · Volvemos pronto · </span><span>🚧 Estamos en el horno · Volvemos pronto · </span><span>🚧 Estamos en el horno · Volvemos pronto · </span><span>🚧 Estamos en el horno · Volvemos pronto · </span><span>🚧 Estamos en el horno · Volvemos pronto · </span><span>🚧 Estamos en el horno · Volvemos pronto · </span></div></div>
+  <main class="puerta">
+    <img class="logo" src="IMG/Logo-taz-trans.png?v=2" alt="TAZ Fast Food, hecho en Colombia">
 
-  <main>
-    <section class="hero">
-      <div class="texto">
-        <span class="stick">¡Hecho en Colombia!</span>
-        <h1>¡Estamos en el horno!</h1>
-        <p class="sub">Estamos mejorando la página para que armes tu antojo más rápido y más rico. Vuelve en un ratito.</p>
+    <!-- Cartel colgado de la puerta: se mece suavemente -->
+    <div class="colgante">
+      <div class="clavo" aria-hidden="true"></div>
+      <svg class="cuerda" viewBox="0 0 300 90" aria-hidden="true"><path d="M150 6 L40 88 M150 6 L260 88" fill="none" stroke="#3a2a1c" stroke-width="4" stroke-linecap="round"/></svg>
+      <section class="pizarra">
+        <p class="tiza-top">Lo sentimos, estamos</p>
+        <h1>Remodelando<br>la cocina</h1>
+        <p class="tiza">Volvemos pronto con todo el sabor 🇨🇴</p>
+      </section>
+    </div>
 
-        <div class="horno" role="status" aria-live="polite">
-          <div class="barra"><b id="bar"></b></div>
-          <p id="paso">Amasando la masa…</p>
-        </div>
-      </div>
+    <!-- Herramientas trabajando -->
+    <div class="taller" aria-hidden="true">
+      <svg class="engrane g1" viewBox="0 0 100 100"><use href="#gear"/></svg>
+      <svg class="engrane g2" viewBox="0 0 100 100"><use href="#gear"/></svg>
+      <svg class="engrane g3" viewBox="0 0 100 100"><use href="#gear"/></svg>
+    </div>
 
-      <div class="escena" aria-hidden="true">
-        <div class="sol"></div>
-        <div class="humo"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="pizza">
-          <div class="giro"><span style="left:78.2%;top:60.3%">🍍</span><span style="left:47.2%;top:81.9%">🍄</span><span style="left:23.7%;top:59.6%">🧀</span><span style="left:30.1%;top:26.3%">🍖</span><span style="left:64.5%;top:24.9%">🫑</span><span style="left:50.0%;top:50.0%">🍅</span><span style="left:57.5%;top:63.0%">🥓</span><span style="left:35.0%;top:44.5%">🌽</span><span style="left:39.1%;top:63.0%">🍒</span><span style="left:65.6%;top:41.0%">🧅</span><span style="left:48.6%;top:34.1%">🍍</span></div>
-        </div>
-        <div class="medallon"><img src="IMG/Logo-taz-trans.png?v=1" alt=""></div>
-      </div>
-    </section>
+    <ol class="checklist" aria-label="Lo que estamos haciendo">
+      <li class="ok">Nuevo menú con fotos</li>
+      <li class="ok">Arma tu pizza a tu gusto</li>
+      <li class="now">Afinando los últimos detalles</li>
+      <li>¡Abrir la puerta de nuevo!</li>
+    </ol>
 
-    <section class="menu-pronto">
-      <h2>Mientras tanto se calienta…</h2>
-      <ul>
-        <li><em>🍕</em><b>Pizza</b></li>
-        <li><em>🍟</em><b>Salchicosteñas</b></li>
-        <li><em>🍔</em><b>Burguer</b></li>
-        <li><em>🌭</em><b>Perro caliente</b></li>
-        <li><em>🌽</em><b>Mazorcada</b></li>
-        <li><em>🥤</em><b>Bebidas</b></li>
-      </ul>
-    </section>
+    <nav class="redes" aria-label="Redes sociales">
+      <span>Mientras tanto, síguenos</span>
+      <a href="https://www.instagram.com/tazmaniafoodoficial/" target="_blank" rel="noopener" aria-label="Instagram de TAZ Fast Food"><img src="IMG/Redes/instagram.png?v=2" alt="" width="40" height="40"></a>
+      <a href="https://www.facebook.com/p/Tazmania-Food-61559588588174/" target="_blank" rel="noopener" aria-label="Facebook de TAZ Fast Food"><img src="IMG/Redes/facebook.png?v=2" alt="" width="40" height="40"></a>
+    </nav>
   </main>
 
-  <footer>
-    <span class="stick">¡Hecho en Colombia!</span>
-    <p class="fn">TAZ Fast Food</p>
-    <p>Servido en San José, California</p>
-    <div class="social" role="group" aria-label="Redes sociales">
-      <p class="social-t">¡Síguenos mientras volvemos!</p>
-      <ul>
-        <li><a class="sc sc-fb" href="https://www.facebook.com/p/Tazmania-Food-61559588588174/" target="_blank" rel="noopener" aria-label="TAZ Fast Food en Facebook"><img src="IMG/Redes/facebook.png?v=1" alt="" width="52" height="52"><span>Facebook</span></a></li>
-        <li><a class="sc sc-ig" href="https://www.instagram.com/tazmaniafoodoficial/" target="_blank" rel="noopener" aria-label="TAZ Fast Food en Instagram"><img src="IMG/Redes/instagram.png?v=1" alt="" width="52" height="52"><span>Instagram</span></a></li>
-      </ul>
-    </div>
-  </footer>
+  <p class="pie">TAZ Fast Food · Servido en San José, California · <span id="anio"></span></p>
 
-  <script src="JS/index.js?v=1"></script>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="gear" viewBox="0 0 100 100">
+        <path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z" fill="currentColor"/>
+        <circle cx="50" cy="50" r="14" fill="var(--fondo)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="JS/index.js?v=2"></script>
 </body>
 </html>

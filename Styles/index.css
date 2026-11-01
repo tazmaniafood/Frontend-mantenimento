@@ -1,99 +1,75 @@
-/* ============ PÁGINA DE MANTENIMIENTO · TAZ Fast Food ============
-   Misma estética del sitio: toldo rojo festoneado, bordes negros gruesos, tipografía Anton. */
-:root{color-scheme:dark;--bg:#2a0a0a;--card:#431111;--card2:#5a1717;--org:#f7941d;--yel:#ffc933;--red:#e63312;--cream:#fff3dc;--mut:#d9b9a0;--ok:#7bd88f;--ink:#120303;
---hd:'Anton','Impact','Arial Narrow',sans-serif;--bd:'Nunito','Segoe UI',system-ui,sans-serif;
-padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* ============ MANTENIMIENTO · TAZ Fast Food ============
+   Estética distinta al sitio de clientes: papel claro, una puerta con un cartel
+   de pizarra colgado que se mece, engranajes trabajando y una lista de tareas. */
+:root{
+  --fondo:#f6efe2;--linea:#e7dcc6;--tinta:#2b1d12;--suave:#7a6550;
+  --pizarra:#24302a;--marco:#8a5a2b;--tiza:#f3f1e7;
+  --rojo:#e63312;--naranja:#f7941d;--amarillo:#ffc933;--verde:#3f9a5b;
+  --hd:'Anton','Impact',sans-serif;--mano:'Caveat','Comic Sans MS',cursive;--bd:'Nunito','Segoe UI',system-ui,sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box}
 html{height:100%;overflow-x:hidden}
-body{margin:0;min-height:100%;display:flex;flex-direction:column;background:var(--bg) radial-gradient(#ffffff14 2px,transparent 2.5px) 0 0/22px 22px;color:var(--cream);font:500 16px/1.5 var(--bd);overflow-x:hidden}
-img{max-width:100%}
-h1,h2{font-family:var(--hd);font-weight:400;letter-spacing:.5px;margin:0;line-height:1.05}
-main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:34px max(18px,env(safe-area-inset-right)) 50px max(18px,env(safe-area-inset-left))}
-.stick{display:inline-block;background:var(--red);color:var(--cream);font:400 22px/1.5 var(--hd);padding:6px 16px;border:4px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-4deg)}
+body{margin:0;min-height:100%;display:flex;flex-direction:column;align-items:center;background:var(--fondo);color:var(--tinta);font:500 16px/1.5 var(--bd)}
+/* Hoja cuadriculada */
+.papel{position:fixed;inset:0;z-index:-1;background:
+  linear-gradient(var(--linea) 1px,transparent 1px) 0 0/28px 28px,
+  linear-gradient(90deg,var(--linea) 1px,transparent 1px) 0 0/28px 28px,
+  radial-gradient(ellipse at 50% 30%,#fffaf0 0,var(--fondo) 70%)}
 
-/* ---- Header: toldo rojo ---- */
-.top{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 20px;background:radial-gradient(#ffffff26 2px,transparent 2.5px) 0 0/16px 16px,var(--red);border-bottom:5px solid var(--ink)}
-.top::after{content:"";position:absolute;left:0;right:0;top:100%;height:18px;background:radial-gradient(circle at 17px 0,var(--red) 13px,var(--ink) 13px 17px,transparent 17.5px) 0 0/34px 18px repeat-x;pointer-events:none}
-.brand{position:relative;z-index:2;flex:none;display:block;width:78px;height:78px;margin:-12px 0 -34px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 4px var(--cream),4px 6px 0 4px var(--ink)}
-.brand img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
-.estado{display:inline-flex;align-items:center;gap:10px;background:var(--yel);color:var(--ink);border:4px solid var(--ink);border-radius:99px;box-shadow:0 5px 0 var(--ink);font:400 20px/1.4 var(--hd);letter-spacing:.8px;padding:5px 18px}
-.estado i{width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid var(--ink);animation:blink 1.2s ease-in-out infinite}
-@keyframes blink{50%{opacity:.25}}
+.puerta{flex:1;width:min(560px,100%);display:flex;flex-direction:column;align-items:center;gap:26px;padding:28px 16px 20px}
+.logo{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 6px 10px #0003)}
 
-/* ---- Cinta de obra ---- */
-.cinta{margin-top:30px;overflow:hidden;background:repeating-linear-gradient(-45deg,var(--yel) 0 22px,var(--ink) 22px 44px);border-block:5px solid var(--ink);transform:rotate(-1.2deg);box-shadow:0 6px 0 #0006}
-.cinta div{display:flex;width:max-content;animation:cinta 28s linear infinite}
-.cinta span{background:var(--yel);color:var(--ink);font:400 22px/1 var(--hd);letter-spacing:1px;padding:8px 14px;margin:6px 0;white-space:nowrap}
-@keyframes cinta{to{transform:translateX(-50%)}}
+/* ---- Cartel colgante ---- */
+.colgante{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;transform-origin:50% 0;animation:mecer 4.5s ease-in-out infinite}
+@keyframes mecer{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
+.clavo{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#d9d9d9,#6b6b6b);box-shadow:0 2px 3px #0005;z-index:2}
+.cuerda{display:block;width:66%;height:auto;margin-top:-10px}
+.pizarra{width:100%;margin-top:-4px;padding:26px 22px 24px;text-align:center;color:var(--tiza);background:
+  radial-gradient(ellipse at 30% 20%,#ffffff10,#0000 60%),
+  radial-gradient(ellipse at 80% 90%,#ffffff0a,#0000 50%),var(--pizarra);
+  border:14px solid var(--marco);border-radius:10px;
+  box-shadow:inset 0 0 0 3px #5e3b18,inset 0 0 30px #0007,0 18px 30px -10px #2b1d1266}
+.tiza-top{margin:0;font:700 26px/1 var(--mano);color:#cfe8d6}
+.pizarra h1{margin:8px 0 10px;font:400 clamp(40px,10vw,64px)/1 var(--hd);letter-spacing:1px;color:var(--amarillo);text-transform:uppercase;text-shadow:0 0 1px #fff8}
+.tiza{margin:0;font:700 25px/1.2 var(--mano);color:var(--tiza)}
+.tiza::after{content:"";display:block;width:60%;height:3px;margin:10px auto 0;border-radius:3px;background:var(--tiza);opacity:.55;transform:rotate(-1deg)}
 
-/* ---- Hero ---- */
-.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;padding:24px 0 10px}
-.hero h1{margin:16px 0 18px;font-size:clamp(46px,7vw,86px);color:var(--yel);-webkit-text-stroke:9px var(--ink);paint-order:stroke fill;text-shadow:6px 6px 0 var(--ink);transform:rotate(-2deg)}
-.sub{max-width:44ch;margin:0 0 22px;font-size:18px;font-weight:700;color:var(--cream)}
-.horno{max-width:440px;padding:14px 16px;background:var(--card);border:4px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink)}
-.barra{height:22px;padding:3px;background:var(--ink);border-radius:99px}
-.barra b{display:block;height:100%;width:0;border-radius:99px;background:repeating-linear-gradient(-45deg,var(--org) 0 10px,var(--yel) 10px 20px);background-size:28px 28px;animation:rayas .8s linear infinite;transition:width .9s cubic-bezier(.34,1.3,.64,1)}
-@keyframes rayas{to{background-position:28px 0}}
-#paso{margin:10px 2px 0;font-weight:800}
-#paso.in{animation:entra .35s ease-out}
-@keyframes entra{from{opacity:0;transform:translateY(6px)}}
+/* ---- Engranajes ---- */
+.taller{position:relative;width:170px;height:96px}
+.engrane{position:absolute;color:var(--tinta)}
+.g1{width:70px;left:12px;top:14px;color:var(--rojo);animation:gira 6s linear infinite}
+.g2{width:46px;left:76px;top:4px;color:var(--naranja);animation:gira 4s linear infinite reverse}
+.g3{width:40px;left:112px;top:46px;color:var(--amarillo);animation:gira 3.4s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
 
-/* ---- Escena: pizza girando con humo y el logo ---- */
-.escena{position:relative;aspect-ratio:1;max-width:460px;width:100%;justify-self:center;display:grid;place-items:center}
-.sol{position:absolute;inset:2%;border-radius:50%;border:5px solid var(--ink);background:repeating-conic-gradient(var(--org) 0 9deg,var(--yel) 9deg 18deg);opacity:.35;animation:spin 60s linear infinite reverse}
-.pizza{position:relative;width:74%;aspect-ratio:1;border-radius:50%;filter:drop-shadow(8px 10px 0 var(--ink))}
-.giro{position:absolute;inset:0;border-radius:50%;animation:spin 30s linear infinite;background:
- radial-gradient(circle at 34% 30%,#fff6cf 0 5%,#0000 5.5%),radial-gradient(circle at 62% 40%,#fff6cf 0 4%,#0000 4.5%),radial-gradient(circle at 45% 64%,#fff6cf 0 6%,#0000 6.5%),radial-gradient(circle at 70% 66%,#fff6cf 0 4.5%,#0000 5%),
- radial-gradient(closest-side,#ffe28e 0 66%,#f3bb52 72%,#d9451c 74% 79%,#e7a04c 81%,#d4843a 88%,#b8651e 95%,#8f4714 100%);box-shadow:0 0 0 4px var(--ink)}
-.giro span{position:absolute;left:50%;top:50%;font-size:clamp(22px,4vw,36px);line-height:1;transform:translate(-50%,-50%);filter:drop-shadow(1px 2px 0 #0006)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.medallon{position:absolute;right:-2%;bottom:0;width:34%;aspect-ratio:1;border-radius:50%;background:var(--ink);box-shadow:0 0 0 5px var(--cream),5px 7px 0 5px var(--ink);animation:bote 3s ease-in-out infinite}
-.medallon img{width:100%;height:100%;object-fit:contain;border-radius:50%}
-@keyframes bote{50%{transform:translateY(-10px) rotate(-6deg)}}
-.humo{position:absolute;left:22%;right:22%;top:-6%;height:46%;z-index:2;pointer-events:none;filter:blur(5px)}
-.humo i{position:absolute;bottom:0;left:var(--x);width:24%;height:60%;border-radius:50%;background:radial-gradient(ellipse 50% 50% at 50% 60%,#fff 0,#fffb 35%,#fff0 72%);opacity:0;animation:humo var(--d,5.5s) ease-in-out var(--dl,0s) infinite}
-.humo i:nth-child(1){--x:4%;--d:6s}.humo i:nth-child(2){--x:24%;--d:5.2s;--dl:-1.8s}.humo i:nth-child(3){--x:44%;--d:6.4s;--dl:-3.4s}.humo i:nth-child(4){--x:62%;--d:5.6s;--dl:-.9s}.humo i:nth-child(5){--x:78%;--d:6.2s;--dl:-4.6s}
-@keyframes humo{0%{transform:translate(0,30%) scale(.5);opacity:0}20%{opacity:.85}60%{transform:translate(12%,-60%) scale(1.1) rotate(6deg);opacity:.4}100%{transform:translate(-6%,-120%) scale(1.5);opacity:0}}
+/* ---- Lista de tareas ---- */
+.checklist{list-style:none;margin:0;padding:18px 20px;width:100%;background:#fffdf7;border:2px solid var(--linea);border-radius:14px;box-shadow:0 10px 24px -14px #2b1d1259;counter-reset:t}
+.checklist li{position:relative;display:flex;align-items:center;gap:12px;padding:8px 0;font-weight:700;color:var(--suave)}
+.checklist li+li{border-top:1px dashed var(--linea)}
+.checklist li::before{content:"";flex:none;width:22px;height:22px;border-radius:6px;border:2px solid #c9b89a;background:#fff}
+.checklist li.ok{color:var(--tinta);text-decoration:line-through;text-decoration-color:#0004}
+.checklist li.ok::before{background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;border-color:var(--verde)}
+.checklist li.now{color:var(--tinta)}
+.checklist li.now::before{border-color:var(--naranja);background:conic-gradient(var(--naranja) var(--p,0%),#fff 0);animation:carga 3s linear infinite}
+.checklist li.now::after{content:"en proceso";margin-left:auto;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--naranja)}
+@property --p{syntax:'<percentage>';inherits:false;initial-value:0%}
+@keyframes carga{to{--p:100%}}
 
-/* ---- Lo que viene ---- */
-.menu-pronto{margin-top:40px;text-align:center}
-.menu-pronto h2{font-size:clamp(30px,4vw,42px);color:var(--cream);-webkit-text-stroke:6px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--ink);margin-bottom:22px}
-.menu-pronto ul{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin:0;padding:0;list-style:none}
-.menu-pronto li{display:grid;justify-items:center;gap:8px;padding:14px 8px;background:var(--c);color:var(--ink);border:4px solid var(--ink);border-radius:20px;box-shadow:5px 5px 0 var(--ink);transform:rotate(var(--t,-1.5deg))}
-.menu-pronto li:nth-child(even){--t:1.5deg}
-.menu-pronto li:nth-child(1){--c:#ff6b4a}.menu-pronto li:nth-child(2){--c:#fff3dc}.menu-pronto li:nth-child(3){--c:#f7941d}.menu-pronto li:nth-child(4){--c:#ffc933}.menu-pronto li:nth-child(5){--c:#ffa94d}.menu-pronto li:nth-child(6){--c:#7bd88f}
-.menu-pronto em{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--cream);border:3px solid var(--ink);font-style:normal;font-size:30px;line-height:1}
-.menu-pronto b{font:400 19px/1.1 var(--hd);letter-spacing:.4px}
+/* ---- Redes ---- */
+.redes{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.redes span{font:700 24px/1 var(--mano);color:var(--suave);margin-right:4px}
+.redes a{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;border:2px solid var(--linea);box-shadow:0 6px 14px -8px #2b1d1280;transition:transform .2s,box-shadow .2s}
+.redes a:hover{transform:translateY(-4px) rotate(-6deg);box-shadow:0 10px 18px -8px #2b1d1299}
+.redes img{width:36px;height:36px;border-radius:50%}
+:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
 
-/* ---- Footer festoneado con redes ---- */
-footer{position:relative;margin-top:26px;padding:34px 18px 26px;background:radial-gradient(#ffffff26 2px,transparent 2.5px) 0 0/16px 16px,var(--red);box-shadow:0 -5px 0 var(--ink);color:var(--cream);font-weight:800;text-align:center;line-height:1.5}
-footer::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:18px;background:radial-gradient(circle at 17px 18px,var(--red) 13px,var(--ink) 13px 17px,transparent 17.5px) 0 0/34px 18px repeat-x;pointer-events:none}
-footer::after{content:"🍕 🍔 🌭 🍟 🌽";display:block;margin-top:14px;font-size:30px;letter-spacing:8px;filter:drop-shadow(2px 3px 0 var(--ink))}
-footer p{margin:6px 0;font-size:15px;text-shadow:2px 2px 0 var(--ink)}
-footer .stick{background:var(--yel);color:var(--ink)}
-footer .fn{font:400 clamp(34px,6vw,52px)/1 var(--hd);color:var(--yel);-webkit-text-stroke:7px var(--ink);paint-order:stroke fill;text-shadow:4px 5px 0 var(--ink);letter-spacing:1px;margin:12px 0 6px;transform:rotate(-2deg)}
-footer .social{margin:18px 0 4px}
-footer .social-t{font:400 24px/1 var(--hd);letter-spacing:1px;-webkit-text-stroke:5px var(--ink);paint-order:stroke fill;text-shadow:3px 3px 0 var(--ink);margin:0 0 12px}
-footer .social ul{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:0;padding:0;list-style:none}
-footer a.sc{display:inline-flex;align-items:center;gap:10px;background:var(--cream);color:var(--ink);border:4px solid var(--ink);border-radius:99px;box-shadow:0 5px 0 var(--ink);padding:5px 18px 5px 5px;font:400 21px/1 var(--hd);letter-spacing:.8px;text-decoration:none;transition:transform .15s,background .15s}
-footer a.sc img{display:block;width:44px;height:44px;border-radius:50%;transition:transform .3s}
-footer .social li:nth-child(odd) a.sc{transform:rotate(-2deg)}footer .social li:nth-child(even) a.sc{transform:rotate(2deg)}
-footer .social li a.sc:hover{transform:translateY(-3px) rotate(0) scale(1.05)}
-footer a.sc-fb:hover{background:#cfe0ff}footer a.sc-ig:hover{background:#ffd3e8}
-footer a.sc:hover img{transform:rotate(-12deg) scale(1.08)}
-:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+.pie{margin:0;padding:14px 16px 22px;font-size:13px;font-weight:700;color:var(--suave);text-align:center}
 
-/* ---- Responsive ---- */
-@media(max-width:900px){.menu-pronto ul{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:760px){
- .top{padding:8px 12px}
- .top::after{height:14px;background-image:radial-gradient(circle at 13px 0,var(--red) 9px,var(--ink) 9px 13px,transparent 13.5px);background-size:26px 14px}
- .brand{width:56px;height:56px;margin:0;box-shadow:0 0 0 3px var(--cream),3px 4px 0 3px var(--ink)}
- .estado{font-size:16px;padding:4px 12px}
- .hero{grid-template-columns:1fr;text-align:center;padding-top:10px}
- .escena{order:-1;max-width:320px}
- .sub,.horno{margin-inline:auto}
- .horno{text-align:left}
+@media(max-width:420px){
+  .puerta{gap:22px;padding-top:20px}
+  .logo{width:80px;height:80px}
+  .pizarra{border-width:11px;padding:20px 14px}
+  .tiza-top{font-size:22px}.tiza{font-size:22px}
+  .redes span{flex-basis:100%;text-align:center;margin:0}
 }
-@media(max-width:420px){.menu-pronto ul{grid-template-columns:repeat(2,1fr);gap:12px}footer a.sc{font-size:18px;padding-right:14px}footer a.sc img{width:38px;height:38px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
