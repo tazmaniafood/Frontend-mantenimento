@@ -1,21 +1,21 @@
-/* ============ MANTENIMIENTO · TAZ Fast Food ============
-   Caricatura: sol amarillo con rayos, muchas nubes, un cartel colgado que se mece,
+/* ============ MANTENIMIENTO · Pa'l Filo ============
+   Noche costeña: rayos suaves, nubes, un cartel colgado que se mece,
    una lista de avance y las redes. */
 :root{
-  --ink:#120303;--crema:#fff3dc;--rojo:#e63312;--naranja:#f7941d;--amarillo:#ffc933;--verde:#3f9a5b;--cafe:#6b4a30;
-  --hd:'Anton','Impact',sans-serif;--bd:'Nunito','Segoe UI',system-ui,sans-serif;
+  --ink:#0D0919;--uva:#5B0DA8;--crema:#FFF1DC;--rojo:#FF2440;--naranja:#FFB700;--amarillo:#FFB700;--verde:#7CFF6B;--cafe:#2C1650;--cian:#00B9FF;
+  --hd:'Lilita One','Arial Rounded MT Bold',sans-serif;--bd:'Nunito','Segoe UI',system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{min-height:100%}
 body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;color:var(--ink);font:600 16px/1.5 var(--bd);overflow-x:clip}
 
 /* ---- Fondo ---- */
-.cielo{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(circle at 50% 36%,#ffe27a 0,#ffc933 35%,#f7941d 100%)}
-.rayos{position:absolute;left:50%;top:36%;width:260vmax;height:260vmax;margin:-130vmax 0 0 -130vmax;background:repeating-conic-gradient(#ffffff40 0 7.5deg,#0000 7.5deg 15deg);animation:gira 90s linear infinite}
+.cielo{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(circle at 50% 36%,#3A1470 0,#1A0D30 40%,#0D0919 100%)}
+.rayos{position:absolute;left:50%;top:36%;width:260vmax;height:260vmax;margin:-130vmax 0 0 -130vmax;background:repeating-conic-gradient(rgb(255 241 220 / .05) 0 7.5deg,#0000 7.5deg 15deg);animation:gira 90s linear infinite}
 @keyframes gira{to{transform:rotate(360deg)}}
-.puntos{position:absolute;inset:0;background:radial-gradient(#12030322 2px,transparent 2.6px) 0 0/18px 18px;-webkit-mask:radial-gradient(circle at 50% 40%,#0000 25%,#000 85%);mask:radial-gradient(circle at 50% 40%,#0000 25%,#000 85%)}
+.puntos{position:absolute;inset:0;background:radial-gradient(rgb(255 241 220 / .08) 2px,transparent 2.6px) 0 0/18px 18px;-webkit-mask:radial-gradient(circle at 50% 40%,#0000 25%,#000 85%);mask:radial-gradient(circle at 50% 40%,#0000 25%,#000 85%)}
 /* Nubes: cruzan la pantalla a distintas alturas, tamaños y velocidades */
-.nube{position:absolute;left:0;width:var(--w);top:var(--y);filter:drop-shadow(5px 6px 0 #12030340);animation:nube var(--d) linear var(--dl) infinite;opacity:var(--o,1)}
+.nube{opacity:.18;position:absolute;left:0;width:var(--w);top:var(--y);filter:drop-shadow(5px 6px 0 #5B0DA880);animation:nube var(--d) linear var(--dl) infinite}
 @keyframes nube{from{transform:translateX(calc(-1 * var(--w) - 20px))}to{transform:translateX(calc(100vw + 20px))}}
 .n1{--w:190px;--y:4%;--d:48s;--dl:-6s}
 .n2{--w:120px;--y:16%;--d:62s;--dl:-40s;--o:.9}
@@ -30,7 +30,7 @@ body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:col
 
 /* ---- Contenido ---- */
 .puerta{flex:1;width:min(560px,100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px 16px 18px}
-.logo{display:block;width:100px;height:100px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 5px var(--crema),6px 8px 0 5px var(--ink);animation:bote 3s ease-in-out infinite}
+.logo{display:block;width:100px;height:100px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 5px var(--crema),6px 8px 0 5px var(--uva);animation:bote 3s ease-in-out infinite}
 .logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
 @keyframes bote{50%{transform:translateY(-6px) rotate(-5deg)}}
 
@@ -39,31 +39,31 @@ body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:col
 @keyframes mecer{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
 .clavo{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eee,#8a8a8a);border:4px solid var(--ink);z-index:2}
 .cuerda{display:block;width:64%;height:auto;margin-top:-10px}
-.cartel{position:relative;width:100%;margin-top:-6px;padding:30px 22px 44px;text-align:center;overflow:hidden;background:radial-gradient(#12030312 2px,transparent 2.5px) 0 0/16px 16px,var(--crema);border:6px solid var(--ink);border-radius:26px;box-shadow:10px 12px 0 var(--ink)}
-.ups{position:absolute;top:14px;left:-6px;background:var(--rojo);color:var(--crema);border:4px solid var(--ink);border-radius:0 12px 12px 0;padding:2px 16px 2px 20px;font:400 22px/1.4 var(--hd);letter-spacing:1px;transform:rotate(-4deg);box-shadow:3px 3px 0 var(--ink)}
-.cartel h1{margin:16px 0 10px;font:400 clamp(42px,10vw,68px)/.98 var(--hd);letter-spacing:1px;text-transform:uppercase;color:var(--amarillo);-webkit-text-stroke:8px var(--ink);paint-order:stroke fill;text-shadow:5px 6px 0 var(--ink);transform:rotate(-1.5deg)}
+.cartel{position:relative;background-color:var(--crema);width:100%;margin-top:-6px;padding:30px 22px 44px;text-align:center;overflow:hidden;background:radial-gradient(#0D091912 2px,transparent 2.5px) 0 0/16px 16px,var(--crema);border:6px solid var(--ink);border-radius:26px;box-shadow:10px 12px 0 var(--uva)}
+.ups{position:absolute;top:14px;left:-6px;background:var(--rojo);color:var(--crema);border:4px solid var(--ink);border-radius:0 12px 12px 0;padding:2px 16px 2px 20px;font:400 22px/1.4 var(--hd);letter-spacing:1px;transform:rotate(-4deg);box-shadow:3px 3px 0 var(--uva)}
+.cartel h1{margin:16px 0 10px;font:400 clamp(42px,10vw,68px)/.98 var(--hd);letter-spacing:1px;text-transform:uppercase;color:var(--amarillo);-webkit-text-stroke:8px var(--crema);paint-order:stroke fill;text-shadow:5px 6px 0 var(--uva);transform:rotate(-1.5deg)}
 .cartel p{margin:0;font-size:17px;font-weight:800;color:var(--cafe)}
 .cinta{position:absolute;left:0;right:0;bottom:0;height:20px;border-top:4px solid var(--ink);background:repeating-linear-gradient(-45deg,var(--amarillo) 0 14px,var(--ink) 14px 28px);background-size:40px 40px;animation:cinta 1.6s linear infinite}
 @keyframes cinta{to{background-position:40px 0}}
 
 /* ---- Slider de antojos: uno por uno ---- */
 .slider{display:flex;flex-direction:column;align-items:center;gap:10px}
-.ventana{position:relative;display:grid;place-items:center;width:108px;height:108px;border-radius:50%;overflow:hidden;background:radial-gradient(circle,#fff 0 55%,var(--crema) 56%);border:5px solid var(--ink);box-shadow:6px 7px 0 var(--ink)}
-.emo{font-size:58px;line-height:1;filter:drop-shadow(3px 4px 0 #12030355)}
+.ventana{position:relative;display:grid;place-items:center;width:108px;height:108px;border-radius:50%;overflow:hidden;background:radial-gradient(circle,#2C1650 0 55%,#1A0D30 56%);border:5px solid var(--ink);box-shadow:6px 7px 0 var(--uva)}
+.emo{display:block;width:78px;height:78px}
 .emo.sale{animation:sale .35s ease-in forwards}
 .emo.entra{animation:entra .45s cubic-bezier(.34,1.6,.64,1)}
 @keyframes sale{to{transform:translateX(-90px) rotate(-30deg);opacity:0}}
 @keyframes entra{from{transform:translateX(90px) rotate(30deg) scale(.6);opacity:0}}
 
 /* ---- Redes: en una pastilla para que nunca se corten ---- */
-.redes{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 10px 8px 20px;background:var(--crema);border:4px solid var(--ink);border-radius:99px;box-shadow:0 5px 0 var(--ink)}
+.redes{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 10px 8px 20px;background:var(--crema);border:4px solid var(--ink);border-radius:99px;box-shadow:0 5px 0 var(--uva)}
 .redes span{font:400 22px/1.2 var(--hd);letter-spacing:.8px;color:var(--ink);white-space:nowrap}
-.redes a{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid var(--ink);transition:transform .2s}
+.redes a{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--crema);border:3px solid var(--ink);transition:transform .2s}
 .redes a:hover{transform:translateY(-3px) rotate(-8deg)}
 .redes img{width:34px;height:34px;border-radius:50%}
 :focus-visible{outline:3px solid var(--rojo);outline-offset:3px}
 
-.pie{margin:0 16px 18px;padding:4px 14px;font-size:13px;font-weight:800;text-align:center;background:var(--crema);border:3px solid var(--ink);border-radius:99px;box-shadow:0 3px 0 var(--ink)}
+.pie{margin:0 16px 18px;padding:4px 14px;font-size:13px;font-weight:800;text-align:center;background:var(--crema);border:3px solid var(--ink);border-radius:99px;box-shadow:0 3px 0 var(--uva)}
 
 @media(max-width:420px){
   .puerta{gap:18px;padding-top:18px}
@@ -71,7 +71,7 @@ body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:col
   .cartel{padding:28px 14px 40px;border-width:5px}
   .cartel p{font-size:15px}
   .redes span{font-size:20px}
-  .ventana{width:92px;height:92px}.emo{font-size:48px}
+  .ventana{width:92px;height:92px}.emo{width:66px;height:66px}
   .redes a{width:46px;height:46px}.redes img{width:30px;height:30px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -88,7 +88,13 @@ body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:col
   .logo{margin:-20px 0 12px}
   .redes{margin-top:28px}
   .colgante{width:calc(100% - 14px);animation-name:mecer-cel}
-  .cartel{box-shadow:6px 7px 0 var(--ink)}
-  .cartel h1{font-size:clamp(34px,10.5vw,52px);-webkit-text-stroke:6px var(--ink);text-shadow:3px 4px 0 var(--ink)}
+  .cartel{box-shadow:6px 7px 0 var(--uva)}
+  .cartel h1{font-size:clamp(34px,10.5vw,52px);-webkit-text-stroke:6px var(--crema);text-shadow:3px 4px 0 var(--uva)}
 }
 @keyframes mecer-cel{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+
+/* Pa'l Filo: el título del cartel en letrero de picó; la cinta en mango y noche */
+.cartel h1{color:var(--rojo)}
+/* Lilita es más ancha que Anton: el título baja de tamaño para que quepa */
+.cartel h1{font-size:clamp(30px,8vw,52px)}
+@media(max-width:600px){.cartel h1{font-size:clamp(26px,8.6vw,40px)}}
