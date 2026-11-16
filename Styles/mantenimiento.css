@@ -68,7 +68,15 @@ body::before {
   .horario__fila { justify-content: center; }
   .redes { justify-content: center; }
 }
-@media (max-height: 640px) { .taller__texto, .horario h2 { display: none; } }
+@media (max-height: 640px) { .horario h2 { display: none; } }
 @media (max-height: 520px) { .horario__zona, @media (prefers-reduced-motion: reduce) { body::before, .taller__logo, .taller__info, .redes .btn { animation: none; } }
 
 @media (max-width: 860px) { .taller__grande { font-size: clamp(3.4rem, min(11vh, 20vw), 5.4rem); } .taller__chico { font-size: clamp(1rem, 5vw, 1.4rem); } }
+
+/* Separaciones con ritmo: cada bloque respira distinto */
+.taller__info { gap: 0 !important; }
+.taller__aviso { margin-bottom: clamp(10px, 2.4vh, 26px); }
+.taller__titulo { margin: 0 0 clamp(12px, 3vh, 30px); }
+.taller__texto { margin-bottom: clamp(16px, 4vh, 40px); }
+.taller__wa { margin-bottom: clamp(12px, 2.6vh, 28px); }
+.taller__marca { gap: clamp(18px, 4vh, 44px); }
