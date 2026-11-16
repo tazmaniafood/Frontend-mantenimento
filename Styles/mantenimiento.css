@@ -18,7 +18,7 @@ body::before {
 .taller {
   --g: clamp(8px, 2vh, 22px);
   width: min(100% - 2 * var(--e-5), 1080px); max-height: 100dvh; padding: var(--g) 0;
-  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); grid-template-areas: "marca info" "pie pie";
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); grid-template-areas: "marca info";
   align-items: center; gap: var(--g) clamp(24px, 5vw, 72px);
 }
 .taller__marca { grid-area: marca; display: grid; justify-items: center; gap: clamp(12px, 3vh, 28px); }
@@ -32,15 +32,6 @@ body::before {
 .cinta { display: block; width: min(100%, 360px); height: 12px; border-radius: 3px; background: repeating-linear-gradient(-45deg, var(--noche) 0 12px, var(--mango) 12px 24px); border: 2px solid var(--noche); box-shadow: 0 0 0 2px var(--crema); }
 .taller__texto { max-width: 42ch; color: var(--crema); font-size: clamp(0.88rem, 2vh, 1.15rem); line-height: 1.45; }
 
-/* El único neón: el tubo brilla, la letra no */
-.neon-volvemos {
-  padding: 0.55rem 1.2rem 0.48rem; border-radius: var(--r-3); color: var(--crema); font-size: clamp(0.95rem, 2.4vh, 1.4rem);
-  background: var(--noche); border: 3px solid var(--cian);
-  box-shadow: 0 0 0 2px var(--noche), 0 0 20px 3px rgb(0 185 255 / 0.55), inset 0 0 14px rgb(0 185 255 / 0.4);
-  animation: tubo 5s steps(1) infinite;
-}
-@keyframes tubo { 0%, 100% { border-color: var(--cian); } 90% { border-color: color-mix(in srgb, var(--cian) 40%, var(--noche)); } 92% { border-color: var(--cian); } 94% { border-color: color-mix(in srgb, var(--cian) 40%, var(--noche)); } 96% { border-color: var(--cian); } }
-
 /* Horario en una placa */
 .horario { display: grid; gap: clamp(4px, 1vh, 10px); padding: clamp(10px, 1.8vh, 18px) clamp(14px, 2vw, 22px); border-radius: var(--r-4); background: var(--sup-1); border: var(--borde); box-shadow: var(--sombra); }
 .horario h2 { font-size: clamp(0.75rem, 1.6vh, 0.95rem); color: var(--texto-2); }
@@ -51,19 +42,20 @@ body::before {
 .horario__horas { font: 400 clamp(1.3rem, 3.8vh, 2.1rem)/1 var(--f-letrero); color: var(--mango); }
 .horario__zona { color: var(--texto-2); font-weight: 700; font-size: clamp(0.7rem, 1.5vh, 0.85rem); }
 
-.redes { display: flex; flex-wrap: wrap; gap: var(--e-3); }
+.redes { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--e-3); }
 .redes .btn { gap: var(--e-2); padding-block: clamp(0.5rem, 1.4vh, 0.85rem) clamp(0.42rem, 1.2vh, 0.75rem); }
 .redes img { width: 22px; height: 22px; }
 
-.pie--mant { grid-area: pie; justify-self: center; color: var(--texto-2); font-weight: 700; font-size: clamp(0.65rem, 1.4vh, 0.8rem); }
+.pie--mant { position: fixed; left: 0; right: 0; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); text-align: center; color: var(--texto-2); font-weight: 700; font-size: clamp(0.65rem, 1.4vh, 0.8rem); }
 
 /* Celular y tableta vertical: una sola columna centrada */
 @media (max-width: 860px) {
   body::before { background: radial-gradient(ellipse 80% 60% at 50% 55%, rgb(13 9 25 / 0.88), rgb(13 9 25 / 0.45)), var(--velo), var(--baldosa); }
-  .taller { grid-template-columns: 1fr; grid-template-areas: "marca" "info" "pie"; justify-items: center; text-align: center; width: min(100% - 2 * var(--e-4), 560px); }
-  .taller__marca { grid-auto-flow: column; align-items: center; gap: var(--e-3); }
+  .taller { grid-template-columns: 1fr; grid-template-areas: "logo" "info" "redes"; padding-bottom: 34px; justify-items: center; text-align: center; width: min(100% - 2 * var(--e-4), 560px); }
+  .taller__marca { display: contents; }
+  .taller__logo { grid-area: logo; }
+  .taller__marca .redes { grid-area: redes; }
   .taller__logo { height: clamp(80px, 17vh, 190px); }
-  .neon-volvemos { display: none; }
   .taller__info { justify-items: center; }
   .horario { justify-items: center; }
   .horario__fila { justify-content: center; }
@@ -71,4 +63,4 @@ body::before {
 }
 @media (max-height: 640px) { .taller__texto, .horario h2 { display: none; } }
 @media (max-height: 520px) { .horario__zona, .cinta { display: none; } }
-@media (prefers-reduced-motion: reduce) { body::before, .taller__logo, .taller__info, .neon-volvemos { animation: none; } }
+@media (prefers-reduced-motion: reduce) { body::before, .taller__logo, .taller__info { animation: none; } }
