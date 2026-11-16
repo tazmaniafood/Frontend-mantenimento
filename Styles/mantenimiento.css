@@ -135,3 +135,9 @@ body::before {
   .redes .btn { font-size: 1.05rem; padding: 0.9rem 1.3rem 0.8rem; }
   .horario h2, .horario__zona { font-size: 0.95rem; }
 }
+/* Celular acostado: el bloque centrado en el ancho */
+@media (orientation: landscape) and (max-height: 520px) {
+  .taller { width: auto; max-width: calc(100% - 2 * var(--e-5)); grid-template-columns: auto auto; justify-content: center; column-gap: clamp(28px, 6vw, 64px); }
+  .taller__info { width: auto; container-type: normal; }
+  .taller__chico { font-size: clamp(0.95rem, 5vh, 1.3rem); }
+}
