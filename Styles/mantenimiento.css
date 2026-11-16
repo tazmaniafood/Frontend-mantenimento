@@ -69,7 +69,8 @@ body::before {
   .redes { justify-content: center; }
 }
 @media (max-height: 640px) { .horario h2 { display: none; } }
-@media (max-height: 520px) { .horario__zona, @media (prefers-reduced-motion: reduce) { body::before, .taller__logo, .taller__info, .redes .btn { animation: none; } }
+@media (max-height: 520px) { .horario__zona { display: none; } }
+@media (prefers-reduced-motion: reduce) { body::before, .taller__logo, .taller__info, .redes .btn { animation: none; } }
 
 @media (max-width: 860px) { .taller__grande { font-size: clamp(3.4rem, min(11vh, 20vw), 5.4rem); } .taller__chico { font-size: clamp(1rem, 5vw, 1.4rem); } }
 
@@ -80,3 +81,57 @@ body::before {
 .taller__texto { margin-bottom: clamp(16px, 4vh, 40px); }
 .taller__wa { margin-bottom: clamp(12px, 2.6vh, 28px); }
 .taller__marca { gap: clamp(18px, 4vh, 44px); }
+
+/* ---------- Celular y tableta de pie: la columna usa todo el alto ----------
+   logo arriba, el mensaje en el centro y las redes abajo; lo que sobra de alto se
+   reparte entre los bloques en vez de quedar vacío al final. */
+@media (max-width: 860px) and (orientation: portrait) {
+  .taller { height: 100dvh; max-height: none; padding: clamp(18px, 5vh, 56px) 0 clamp(40px, 7vh, 72px); grid-template-rows: auto minmax(0, 1fr) auto; align-content: stretch; row-gap: 0; }
+  .taller__logo { height: clamp(84px, 16vh, 200px); align-self: start; }
+  .taller__info { align-self: center; }
+  .taller__marca .redes { align-self: end; }
+  .taller__aviso { margin-bottom: clamp(14px, 3vh, 32px); }
+  .taller__titulo { margin-bottom: clamp(16px, 3.4vh, 36px); gap: clamp(8px, 1.4vh, 16px); }
+  .taller__texto { margin-bottom: clamp(20px, 4.4vh, 48px); max-width: 32ch; }
+  .taller__wa { margin-bottom: clamp(20px, 4vh, 44px); }
+}
+/* ---------- Celular acostado: dos columnas compactas ---------- */
+@media (orientation: landscape) and (max-height: 520px) {
+  .taller { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); grid-template-areas: "marca info"; text-align: left; justify-items: stretch; width: min(100% - 2 * var(--e-5), 900px); }
+  .taller__marca { display: grid; grid-area: marca; }
+  .taller__logo, .taller__marca .redes { grid-area: auto; }
+  .taller__logo { height: clamp(70px, 34vh, 160px); }
+  .taller__marca .redes { flex-wrap: nowrap; gap: var(--e-2); }
+  .taller__marca .redes .btn { font-size: 0.8rem; padding: 0.5rem 0.7rem 0.42rem; }
+  .taller__info, .taller__titulo { justify-items: start; }
+  .horario { justify-items: start; }
+  .horario__fila { justify-content: flex-start; }
+  .taller__grande { font-size: clamp(2.2rem, 13vh, 3.6rem); }
+  .taller__chico { font-size: clamp(0.95rem, 5vh, 1.3rem); }
+  .taller__aviso { margin-bottom: 2vh; } .taller__titulo { margin-bottom: 3vh; } .taller__texto { margin-bottom: 3.5vh; } .taller__wa { margin-bottom: 3vh; }
+  .horario h2, .horario__zona { display: none; }
+}
+/* Celulares bajitos de pie: todo más compacto para que nada se monte */
+@media (max-width: 860px) and (orientation: portrait) and (max-height: 700px) {
+  .taller { padding-top: 12px; padding-bottom: 36px; }
+  .taller__logo { height: clamp(64px, 12vh, 90px); }
+  .taller__grande { font-size: clamp(2.4rem, 9vh, 3.6rem); }
+  .taller__chico { font-size: clamp(0.9rem, 4.4vw, 1.15rem); }
+  .taller__aviso { margin-bottom: 1.6vh; } .taller__titulo { margin-bottom: 2vh; } .taller__texto { margin-bottom: 2.6vh; font-size: 0.85rem; } .taller__wa { margin-bottom: 2.4vh; }
+  .taller__wa.btn--grande { font-size: 0.95rem; padding: 0.7rem 1.1rem 0.62rem; }
+  .horario h2, .horario__zona { display: none; }
+  .redes { flex-wrap: nowrap; gap: var(--e-2); }
+  .redes .btn { font-size: 0.8rem; padding-inline: 0.7rem; }
+}
+/* Tabletas de pie: más grande, que llene la pantalla */
+@media (min-width: 600px) and (max-width: 860px) and (orientation: portrait) {
+  .taller__logo { height: clamp(140px, 20vh, 240px); }
+  .taller__chico { font-size: clamp(1.3rem, 3.6vw, 1.8rem); }
+  .taller__texto { font-size: 1.15rem; }
+  .horario { padding: 18px 26px; }
+  .horario__horas { font-size: 2.2rem; }
+  .taller__wa.btn--grande { font-size: 1.25rem; padding: 1.1rem 1.8rem 1rem; }
+  .horario__dias span { width: 36px; height: 36px; font-size: 1rem; }
+  .redes .btn { font-size: 1.05rem; padding: 0.9rem 1.3rem 0.8rem; }
+  .horario h2, .horario__zona { font-size: 0.95rem; }
+}
