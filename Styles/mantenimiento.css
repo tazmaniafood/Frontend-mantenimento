@@ -28,7 +28,11 @@ body::before {
 .taller__info { grid-area: info; display: grid; justify-items: start; gap: var(--g); animation: entra 0.6s var(--ease) 1s both; }
 @keyframes entra { from { opacity: 0; translate: 0 12px; } }
 .taller__aviso { margin: 0; font-size: clamp(0.72rem, 1.6vh, 0.9rem); }
-.taller__titulo { font: 400 clamp(1.8rem, min(6.4vh, 1rem + 3.4vw), 4rem)/1.02 var(--f-letrero); text-transform: uppercase; letter-spacing: 0.02em; color: var(--crema); max-width: 16ch; }
+.taller__titulo { display: grid; justify-items: start; gap: 0.15em; font-family: var(--f-letrero); font-weight: 400; text-transform: uppercase; letter-spacing: 0.02em; color: var(--crema); line-height: 0.95; }
+.taller__grande { font-size: clamp(3rem, min(12vh, 1.6rem + 6vw), 7rem); }
+.taller__chico { font-size: clamp(1.1rem, min(3.6vh, 0.7rem + 1.5vw), 2rem); white-space: nowrap; }
+.taller__wa { gap: var(--e-2); }
+.taller__wa svg { width: 24px; height: 24px; }
 .taller__texto { max-width: 42ch; color: var(--crema); font-size: clamp(0.88rem, 2vh, 1.15rem); line-height: 1.45; }
 
 /* Horario en una placa */
@@ -60,7 +64,7 @@ body::before {
   .taller__marca .redes { grid-area: redes; }
   .taller__logo { height: clamp(80px, 17vh, 190px); }
   .taller__info { justify-items: center; }
-  .taller__titulo { max-width: none; }
+  .taller__titulo { justify-items: center; }
   .horario { justify-items: center; }
   .horario__fila { justify-content: center; }
   .redes { justify-content: center; }
